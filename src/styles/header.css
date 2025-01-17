@@ -1,36 +1,46 @@
-
-header{
+/* styles/header.css */
+header {
   background-color: #333;
-  width: 100%;
-  height: auto;
-  
+  padding: 10px 20px;
 }
-header img{
+
+nav {
   display: flex;
-  position: relative;
-  width: 100px;
-  height: 100px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 40px; 
+  margin-right: 20px;
   border-radius: 50%;
-  padding-bottom: 15px;
-  padding-top: 15px;
-  padding-left: 15px;
 }
 
-
-nav ul{
+.nav-links {
   display: flex;
-  flex-direction: row;
-  gap: 50px;
-  justify-content: center;
-
-}
-
-nav li{
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-nav a {
+.nav-links li {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
   color: white;
   text-decoration: none;
-  font-size: 20px;
+  margin-left: 8px; 
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.iconNav {
+  color: white;
+  font-size: 16px; 
 }
