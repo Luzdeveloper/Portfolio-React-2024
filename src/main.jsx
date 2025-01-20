@@ -5,6 +5,8 @@ import{ Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { Aboutme } from './components/Aboutme'
 import { Skills } from './components/skills'
+import { Project } from './components/Project'
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -12,5 +14,6 @@ createRoot(document.getElementById('root')).render(
     <Hero />
     <Aboutme />
     <Skills />
+    <Project />
   </StrictMode>,
 )
