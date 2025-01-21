@@ -1,41 +1,82 @@
-import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
-import '../styles/contact.css';
+import { useState } from 'react';
+import '../styles/contact.css'
 
-export const ContactUs = () => {
-  const form = useRef();
 
-  const sendEmail = (e) => {
+export function ContactForm() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
-        publicKey: 'YOUR_PUBLIC_KEY',
-      })
-      .then(
-        () => {
-          console.log('SUCCESS!');
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      message: message,
+    };
+
+    try {
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        (error) => {
-          console.log('FAILED...', error.text);
-        },
-      );
+        body: JSON.stringify({
+          service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          template_id: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          user_id: import.meta.env.VITE_EMAILJS_USER_ID,
+          template_params: templateParams,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log('Email sent successfully:', data);
+        alert('Email sent successfully!');
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        console.error('Error sending email:', data);
+        alert('Error sending email. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('Error sending email. Please try again.');
+    }
   };
 
   return (
-    <div className="contact-container">
-      <h2>Contactez moi</h2>
-      <form ref={form} onSubmit={sendEmail} className="contact-form">
-        <label>Name</label>
-        <input type="text" name="user_name" />
-        <label>Email</label>
-        <input type="email" name="user_email" />
-        <label>Message</label>
-        <textarea name="message" />
-        <input type="submit" value="Send" />
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>Name:</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Email:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Message:</label>
+        <textarea
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          required
+        />
+      </div>
+      <button type="submit">Send</button>
+    </form>
   );
-};
-
-
+}

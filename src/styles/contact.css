@@ -1,58 +1,48 @@
-/* contact.css */
-
-.contact-container {
+body {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 20px;
-  background-color: #333;
+  height: 100vh;
+  margin: 0;
 }
 
-.contact-container h2 {
-  color: #fff;
-  margin-bottom: 20px;
-}
-
-.contact-form {
+form {
   width: 100%;
-  max-width: 600px;
-  background-color: #f9f9f9;
+  margin: 0 auto;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
 }
 
-.contact-form h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
+form div {
+  margin-bottom: 15px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
   color: #333;
 }
 
-.contact-form label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-  color: #555;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  width: 60%;
   padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #007bff;
-  outline: none;
+form textarea {
+  height: 100px;
+  resize: vertical;
 }
 
-.contact-form button {
-  width: 100%;
-  padding: 10px;
+form button {
+  display: inline-block;
+  padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -61,6 +51,6 @@
   font-size: 16px;
 }
 
-.contact-form button:hover {
+form button:hover {
   background-color: #0056b3;
 }

@@ -6,8 +6,9 @@ import { Hero } from './components/Hero'
 import { Aboutme } from './components/Aboutme'
 import { Skills } from './components/skills'
 import { Project } from './components/Project'
-import { ContactUs } from './components/Contact'
 import { Footer } from './components/Footer'
+import {ContactForm} from './components/Contact'
+
 
 
 createRoot(document.getElementById('root')).render(
@@ -17,7 +18,7 @@ createRoot(document.getElementById('root')).render(
     <Aboutme />
     <Skills />
     <Project />
-    <ContactUs />
+    <ContactForm />
     <Footer />
   </StrictMode>,
 )
