@@ -1,82 +1,51 @@
-import { useState } from 'react';
-import '../styles/contact.css'
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import '../styles/contact.css';
 
+export const ContactForm = () => {
+  const form = useRef();
 
-export function ContactForm() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-
-  const handleSubmit = async (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
 
-    const templateParams = {
-      from_name: name,
-      from_email: email,
-      message: message,
-    };
-
-    try {
-      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_EMAILJS_USER_ID
+      )
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          alert('Envoyé avec succès!');
+          form.current.reset(); 
         },
-        body: JSON.stringify({
-          service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-          template_id: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-          user_id: import.meta.env.VITE_EMAILJS_USER_ID,
-          template_params: templateParams,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log('Email sent successfully:', data);
-        alert('Email sent successfully!');
-        setName('');
-        setEmail('');
-        setMessage('');
-      } else {
-        console.error('Error sending email:', data);
-        alert('Error sending email. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error sending email:', error);
-      alert('Error sending email. Please try again.');
-    }
+        (error) => {
+          console.log('FAILED...', error.text);
+          alert('Erreur lors de l&apos envoie du mail.');
+        }
+      );
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Name:</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label>Email:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label>Message:</label>
-        <textarea
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          required
-        />
-      </div>
-      <button type="submit">Send</button>
-    </form>
+    <section id="Contact" className="contact-section">
+      <h2>Contact Us</h2>
+      <form ref={form} onSubmit={sendEmail}>
+        <div>
+          <label>Name:</label>
+          <input type="text" name="user_name" required />
+        </div>
+        <div>
+          <label>Email:</label>
+          <input type="email" name="user_email" required />
+        </div>
+        <div>
+          <label>Message:</label>
+          <textarea name="message" required />
+        </div>
+        <button type="submit">Send</button>
+      </form>
+    </section>
   );
-}
+};

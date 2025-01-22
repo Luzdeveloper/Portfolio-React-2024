@@ -47,14 +47,6 @@ export function Project() {
           <p>Technologie utilisées: html, css, javascript, React, Vitejs </p>
           <a href="https://kaza-seven.vercel.app/" target="_blank">Kaza</a>
         </div>
-        <div className="project-item">
-          <h3>Projet 1</h3>
-          <p>Description</p>
-        </div>
-        <div className="project-item">
-          <h3>Projet 1</h3>
-          <p>Description</p>
-        </div>
       </div>
     </section>
     );
