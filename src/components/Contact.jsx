@@ -30,7 +30,7 @@ export const ContactForm = () => {
 
   return (
     <section id="Contact" className="contact-section">
-      <h2>Contact Us</h2>
+      <h2>Contactez moi</h2>
       <form ref={form} onSubmit={sendEmail}>
         <div>
           <label>Name:</label>
