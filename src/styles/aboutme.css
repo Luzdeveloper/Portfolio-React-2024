@@ -21,3 +21,41 @@
   margin: 0 auto 20px;
   display: block;
 }
+
+@media (max-width: 768px) {
+  .aboutme {
+    padding: 30px 10px;
+  }
+
+  .aboutme h2 {
+    font-size: 2rem;
+  }
+
+  .aboutme p {
+    font-size: 1rem;
+  }
+
+  .photoprofil {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutme {
+    padding: 20px 5px;
+  }
+
+  .aboutme h2 {
+    font-size: 1.5rem;
+  }
+
+  .aboutme p {
+    font-size: 0.9rem;
+  }
+
+  .photoprofil {
+    width: 100px;
+    height: 100px;
+  }
+}

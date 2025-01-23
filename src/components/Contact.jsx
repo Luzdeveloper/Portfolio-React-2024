@@ -33,7 +33,7 @@ export const ContactForm = () => {
       <h2>Contactez moi</h2>
       <form ref={form} onSubmit={sendEmail}>
         <div>
-          <label>Name:</label>
+          <label>Nom:</label>
           <input type="text" name="user_name" required />
         </div>
         <div>
@@ -44,7 +44,7 @@ export const ContactForm = () => {
           <label>Message:</label>
           <textarea name="message" required />
         </div>
-        <button type="submit">Send</button>
+        <button type="submit">Envoyer</button>
       </form>
     </section>
   );

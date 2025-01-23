@@ -1,4 +1,4 @@
-/* styles/skills.css */
+
 .skills {
   padding: 50px 20px;
   background: #f4f4f4;
@@ -47,4 +47,13 @@
   text-align: center;
 }
 
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  .skills-section {
+    width: 100%;
+  }
 
+  .skill-item {
+    width: 100%;
+  }
+}
