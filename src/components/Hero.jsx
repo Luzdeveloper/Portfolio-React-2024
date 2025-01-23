@@ -6,8 +6,8 @@ export function Hero() {
     <section id="Accueil" className="hero">
       <img src={banniere} alt="banniere" className="banniere"/>
       <div className="textContainer">
-      <h1>Bienvenue sur mon portfolio</h1>
-      <p>Florian Lhomel</p>
+      <h1>Florian Lhomel</h1>
+      <p>Bienvenue sur mon portfolio</p>
       <p>Développeur FrontEnd</p>
       </div>
     </section>
