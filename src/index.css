@@ -47,13 +47,43 @@ h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
-html{
-  scroll-behavior: smooth;
-}
-body{
-  font-family: 'Roboto', sans-serif;
+/* 10. Futuristic neon button */
+button {
+  background-color: #0f0f0f;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-h1,h2,h3,h4,h5,h6{
-  font-family: 'Montserrat', sans-serif;
+button:hover {
+  background-color: #00ff00;
+  color: #0f0f0f;
+  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+}
+
+/* 11. Futuristic glowing text */
+.glowing-text {
+  font-size: 24px;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+}
+
+/* 12. Futuristic card */
+.card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
 }

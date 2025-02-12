@@ -1,61 +1,17 @@
-.aboutme{
-  padding: 50px 20px;
-  background: #fff;
+.aboutme {
+  padding: 20px;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #fff;
   text-align: center;
 }
 
-.aboutme h2{
+.aboutme h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
 }
 
-.aboutme p{
+.aboutme p {
   font-size: 1.2rem;
-  color:#666;
-}
-
-.photoprofil{
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  margin: 0 auto 20px;
-  display: block;
-}
-
-@media (max-width: 768px) {
-  .aboutme {
-    padding: 30px 10px;
-  }
-
-  .aboutme h2 {
-    font-size: 2.5rem;
-  }
-
-  .aboutme p {
-    font-size: 1rem;
-  }
-
-  .photoprofil {
-    width: 150px;
-    height: 150px;
-  }
-}
-
-@media (max-width: 480px) {
-  .aboutme {
-    padding: 20px 5px;
-  }
-
-  .aboutme h2 {
-    font-size: 1.5rem;
-  }
-
-  .aboutme p {
-    font-size: 0.9rem;
-  }
-
-  .photoprofil {
-    width: 100px;
-    height: 100px;
-  }
+  text-shadow: 0 0 10px #00ff00;
 }

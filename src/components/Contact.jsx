@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import '../styles/contact.css';
+import { motion } from 'framer-motion';
 
 export const ContactForm = () => {
   const form = useRef();
@@ -17,35 +18,33 @@ export const ContactForm = () => {
       )
       .then(
         () => {
-          console.log('SUCCESS!');
-          alert('Envoyé avec succès!');
-          form.current.reset(); 
+          alert('Message envoyé avec succès !');
+          form.current.reset(); // Réinitialiser le formulaire
         },
         (error) => {
-          console.log('FAILED...', error.text);
-          alert('Erreur lors de l&apos envoie du mail.');
+          alert('Erreur lors de l\'envoi du message :', error.text);
         }
       );
   };
 
   return (
-    <section id="Contact" className="contact-section">
-      <h2>Contactez moi</h2>
+    <motion.section
+      id="Contact"
+      className="contact"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
+      <h2>Contactez-moi</h2>
       <form ref={form} onSubmit={sendEmail}>
-        <div>
-          <label>Nom:</label>
-          <input type="text" name="user_name" required />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input type="email" name="user_email" required />
-        </div>
-        <div>
-          <label>Message:</label>
-          <textarea name="message" required />
-        </div>
+        <label>Nom</label>
+        <input type="text" name="user_name" required />
+        <label>Email</label>
+        <input type="email" name="user_email" required />
+        <label>Message</label>
+        <textarea name="message" required />
         <button type="submit">Envoyer</button>
       </form>
-    </section>
+    </motion.section>
   );
 };

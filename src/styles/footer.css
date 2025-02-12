@@ -1,9 +1,13 @@
-.footer{
-    background-color: #333;
-    color: white;
+.footer {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
     text-align: center;
-    padding: 10px;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-}
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .footer p {
+    margin: 0;
+    font-size: 1rem;
+    text-shadow: 0 0 10px #00ff00;
+  }
